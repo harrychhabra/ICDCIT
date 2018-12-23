@@ -10,7 +10,7 @@ import json
 import paralleldots
 # Create your views here.
 
-paralleldots.set_api_key( "nUV2Ym1gQr8REXKIZQzgKQkDBUkBaUSK6Qukfcx4LwE" )
+paralleldots.set_api_key( "" )
 
 # Function to let user add his own interest
 @csrf_exempt
