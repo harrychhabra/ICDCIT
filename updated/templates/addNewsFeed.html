@@ -1,0 +1,16 @@
+<html>
+<title>
+  Add new feed
+</title>
+<body>
+  Add New feed
+  <br>
+<form method="POST" action="{% url 'updated:addNewsFeed'%}">
+<input type="text" name="user_name" placeholder="Username">
+<br><br>
+<textarea type="text" name="user_content" placeholder="content"></textarea>
+<br><br>
+<button type="submit">Submit</button>
+</form>
+</body>
+</html>

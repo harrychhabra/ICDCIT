@@ -1,0 +1,51 @@
+<html>
+<title>
+  Load news Feed
+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<body>
+  Click to load news feeds
+  <br>
+  <button>Load</button>
+  <br>
+  <hr>
+  <p id="display"></p>
+</body>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.ajax({
+      url:"{% url 'updated:loadNewsFeed'%}",
+      success:function(html){
+        displayNewsFeed(html);
+      },
+    });
+    // Ajax call ends here
+  });
+  // Button click ends here
+  function displayNewsFeed(data){
+    // Get number of newsfeeds
+    var len = Number(data["length"]);
+    for(var i=0; i<len; i++)
+    {
+      str = '';
+      // Extract username
+      uploaded_by = data[String(i)]["user_name"];
+      content = data[String(i)]["content"];
+      tags = data[String(i)]["tags"];
+      
+      str = "<div>";
+      str += "Uploaded By : " + uploaded_by + "<br>";
+      str += "Content : " + content + "<br>";
+      // str += "Tags : " + tags + "<br>";
+      for (tag in tags)
+      {
+        str += tags[tag] + " : " + data[String(i)]["score"][tags[tag]] + "<br>";
+      }
+      str += "</div><br>";
+      $("#display").append(str);
+    }
+  }
+});
+</script>
+</html>
