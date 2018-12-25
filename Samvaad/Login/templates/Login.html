@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<! DOCTYPE html>
+<html>
+<title>Login</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+	<script src="css/bootstrap/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    
+    <div class="container text-center">
+                <p style="font-family: Charm;font-size:3em;letter-spacing: 20px;" class="pt-5 font-weight-italic text-danger">
+                    Samvaad
+                </p>
+            
+        <div class="row">
+            <div class="col-4">
+                
+            </div>
+            <div class="col-4">
+
+               <div class="text-center mt-5">
+                    <div class="pt-4 pb-3 text-center text-primary font-weight-bold">
+                        Member Login
+                    </div>
+                    <form action="{% url 'Login:user_login'%}" method="POST">
+                        {% csrf_token %}
+												<div class="form-group">
+                            <input type="text" class="form-control" placeholder="User name" name="username">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Password" name="password">
+                        </div>
+                        <button class="btn btn-success container-fluid" type="submit">
+                            Submit
+                        </button>
+                    </form>
+										{% if error_message %}
+											<p class="text-danger">
+												{{ message }}
+											</p>
+										{% endif%}
+               </div>
+            </div>
+            <div class="col-4">
+
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+        @font-face {
+            font-family:Charm;
+            src: url('fonts/Charm-Bold.ttf');
+        }
+    </style>
+</html>
