@@ -1,0 +1,172 @@
+{% load staticfiles %}
+<! DOCTYPE html>
+<html>
+<title>User Homepage</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+	<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark ">
+		<div class="container">
+			<a class="navbar-brand" href="#">Samvaad</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse clearfix" id="navbarTogglerDemo01">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+				<ul class="navbar-nav float-none">
+					<li class="nav-item">
+						<a href="#" class="nav-link">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container" style="margin-top:65px;background-color: none">
+		<div class="row">
+
+			<!-- Left section -->
+			<div class="col-lg-3">
+				<div class="container-fluid">
+					<div class="sticky-top">
+							<div class="card">
+									<img class="card-img-top" src="media/{{ data.profile_pic}}" alt="Cover Image"  style="width:100%;">
+								
+								<div class="card-img-overlay">
+									<br>
+									<img src="media/{{ data.profile_pic }}" class="img-thumbnail" alt="Cinque Terre"> 
+								</div>
+								
+								<div class="card-body">
+									<br>
+									<h6 class="card-title">{{ data.first_name }} {{ data.last_name }}</h6>
+									<small class="card-text">
+										{{ data.organization }}
+									</small>
+								</div>
+							</div>
+					</div>
+
+					<div>
+						<br>
+						<form action="{% url 'SuperAdmin:loadAddInstitutePage' %}" method="POST">
+							{% csrf_token %}
+							<button type="submit" class="btn btn-outline-primary btn-block">
+								Add Institute
+							</button>
+						</form>
+						<button type="button" class="btn btn-outline-primary btn-block">
+								Internships
+						</button>
+						<button type="button" class="btn btn-outline-primary btn-block">
+								Internships
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- Left section ends here -->
+
+			<!-- Middle section -->
+			<div class="col-lg-6">
+
+				<div class="container-fluid" style="border:1px solid lightgrey;margin-bottom: 10px;">
+						<div class="row">
+							<div class="col-2">
+								<img src="Images/dp.jpg" class="rounded-circle" style="width:75px;height:75px;border:1px solid black">
+							</div>
+							<div class="col-8">
+								<p class="font-weight-bold" style="margin-bottom:0px;">Nitish Kumar</p>
+								<p class="font-weight-light" style="margin-bottom:0px;">Nitish Kumar</p>
+								<p class="small" style="margin-bottom:0px;">Nitish Kumar</p>
+							</div>
+							<div class="col-2">
+								<span class="small">23 Dec 2018</span>
+							</div>
+						</div>
+						<hr>
+						<div class="container">
+							<pre style="white-space:pre-line;">
+									When I attended my first major academic conference as a graduate student, I made myself somewhat notorious within my grad program. While in the audience at a presentation, I leaned over to a friend, muttered a snide remark, left mid-presentation, and walked 30 blocks to a Manhattan fly fishing shop. The presentation was indeed terrible, but my real problem was that I hadn't yet learned how to attend a conference strategically.
+
+									What I should have done was save my snide comment for later (in my defense, I was very quiet, and nobody overheard me), and quietly slipped out to try another session that, ideally, I would already have scouted in the program and marked for quick reference.  As long as you are quiet and discreet, thereâ€™s nothing rude about leaving a presentation. I left, but I blew off the whole conference for the whole day instead of finding another session. It is less rude to leave a session in between speakers, but, particularly at large conferences and in a large audience, one shouldnâ€™t be shy about politely leaving.
+							</pre>
+						</div>
+
+						<!-- Comments -->
+						<div class="container-fluid">
+							<!-- Each comment -->
+							<div class="row">
+								<!-- Profile pic -->
+								<div class="col-2">
+									<img src="Images/dp.jpg" class="rounded-circle" style="width:50px;height:50px;border:1px solid black">
+								</div>
+								<!-- Name + content -->
+								<div class="col-8">
+									<p class="font-weight-light" style="margin-bottom:0px;">Ronal Choudhary</p>
+									<p class="small">
+										This comment is just for testing purpose
+									</p>
+								</div>
+								<!-- Date and time -->
+								<div class="col-2">
+									<p class="small">
+										23 Dec 2018
+									</p>
+								</div>
+							</div>
+
+							<div class="row">
+									<!-- Profile pic -->
+									<div class="col-2">
+										<img src="Images/dp.jpg" class="rounded-circle" style="width:50px;height:50px;border:1px solid black">
+									</div>
+									<!-- Name + content -->
+									<div class="col-8">
+										<p class="font-weight-light" style="margin-bottom:0px;">Harry Chhhabra</p>
+										<p class="small">
+											This comment is just for testing purpose
+										</p>
+									</div>
+									<!-- Date and time -->
+									<div class="col-2">
+										<p class="small">
+											23 Dec 2018
+										</p>
+									</div>
+								</div>
+						</div>
+						<!-- Comments ends here -->
+				</div>
+
+			</div>
+			<!-- Middle section ends here -->
+
+			<!-- Right section -->
+			<div class="col-lg-3" style="background-color: none">
+
+			</div>
+			<!-- Right section ends here -->
+		</div>
+
+	</div>
+
+
+</body>
+
+</html>
